@@ -41,6 +41,7 @@
         .menu-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 0.5rem 0;
             border-bottom: 1px solid #ddd;
         }
@@ -67,6 +68,24 @@
             width: 100%;
             bottom: 0;
         }
+
+        .order-button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #ff7043;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .order-button:hover {
+            background-color: #e65c36;
+        }
     </style>
 </head>
 <body>
@@ -76,46 +95,81 @@
 </header>
 
 <main class="menu">
-    <div class="menu-section">
-        <h2>Appetizers</h2>
-        <div class="menu-item">
-            <span class="menu-item-name">Spring Rolls</span>
-            <span class="menu-item-price">$5.99</span>
+    <form id="menuForm">
+        <div class="menu-section">
+            <h2>Appetizers</h2>
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" name="menuItem" value="Spring Rolls">
+                    <span class="menu-item-name">Spring Rolls</span>
+                </label>
+                <span class="menu-item-price">$5.99</span>
+            </div>
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" name="menuItem" value="Garlic Bread">
+                    <span class="menu-item-name">Garlic Bread</span>
+                </label>
+                <span class="menu-item-price">$4.99</span>
+            </div>
         </div>
-        <div class="menu-item">
-            <span class="menu-item-name">Garlic Bread</span>
-            <span class="menu-item-price">$4.99</span>
-        </div>
-    </div>
 
-    <div class="menu-section">
-        <h2>Main Dishes</h2>
-        <div class="menu-item">
-            <span class="menu-item-name">Grilled Chicken</span>
-            <span class="menu-item-price">$12.99</span>
+        <div class="menu-section">
+            <h2>Main Dishes</h2>
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" name="menuItem" value="Grilled Chicken">
+                    <span class="menu-item-name">Grilled Chicken</span>
+                </label>
+                <span class="menu-item-price">$12.99</span>
+            </div>
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" name="menuItem" value="Vegetable Stir Fry">
+                    <span class="menu-item-name">Vegetable Stir Fry</span>
+                </label>
+                <span class="menu-item-price">$10.99</span>
+            </div>
         </div>
-        <div class="menu-item">
-            <span class="menu-item-name">Vegetable Stir Fry</span>
-            <span class="menu-item-price">$10.99</span>
-        </div>
-    </div>
 
-    <div class="menu-section">
-        <h2>Desserts</h2>
-        <div class="menu-item">
-            <span class="menu-item-name">Cheesecake</span>
-            <span class="menu-item-price">$6.99</span>
+        <div class="menu-section">
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" name="menuItem" value="Cheesecake">
+                    <span class="menu-item-name">Cheesecake</span>
+                </label>
+                <span class="menu-item-price">$6.99</span>
+            </div>
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" name="menuItem" value="Chocolate Lava Cake">
+                    <span class="menu-item-name">Chocolate Lava Cake</span>
+                </label>
+                <span class="menu-item-price">$7.99</span>
+            </div>
         </div>
-        <div class="menu-item">
-            <span class="menu-item-name">Chocolate Lava Cake</span>
-            <span class="menu-item-price">$7.99</span>
-        </div>
-    </div>
+
+        <button type="button" class="order-button" onclick="submitOrder()">Place Order</button>
+    </form>
 </main>
 
 <footer>
     <p>Thank you for dining with us!</p>
 </footer>
+
+<script>
+    function submitOrder() {
+        const selectedItems = Array.from(document.querySelectorAll('input[name="menuItem"]:checked'))
+            .map(item => item.value);
+
+        if (selectedItems.length === 0) {
+            alert("Please select at least one item to place an order.");
+        } else {
+            alert("You have ordered: \n" + selectedItems.join("\n"));
+        }
+    }
+</script>
 
 </body>
 </html>
