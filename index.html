@@ -1,23 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #ff7043;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .menu {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+
+        .menu-section {
+            margin-bottom: 2rem;
+        }
+
+        .menu-section h2 {
+            border-bottom: 2px solid #ff7043;
+            color: #333;
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item-name {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .menu-item-price {
+            color: #777;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #ff7043;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to Our Food Menu</h1>
-  <h2>Breakfast</h2>
-  <ul>
-    <li>Pancakes - $5.00</li>
-    <li>Omelette - $4.50</li>
-    <li>Fruit Smoothie - $3.50</li>
-  </ul>
-  <h2>Lunch</h2>
-  <ul>
-    <li>Burger - $8.00</li>
-    <li>Salad - $6.00</li>
-    <li>Pizza - $10.00</li>
-  </ul>
+
+<header>
+    <h1>Welcome to Our Restaurant</h1>
+</header>
+
+<main class="menu">
+    <div class="menu-section">
+        <h2>Appetizers</h2>
+        <div class="menu-item">
+            <span class="menu-item-name">Spring Rolls</span>
+            <span class="menu-item-price">$5.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Garlic Bread</span>
+            <span class="menu-item-price">$4.99</span>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Main Dishes</h2>
+        <div class="menu-item">
+            <span class="menu-item-name">Grilled Chicken</span>
+            <span class="menu-item-price">$12.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Vegetable Stir Fry</span>
+            <span class="menu-item-price">$10.99</span>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Desserts</h2>
+        <div class="menu-item">
+            <span class="menu-item-name">Cheesecake</span>
+            <span class="menu-item-price">$6.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-name">Chocolate Lava Cake</span>
+            <span class="menu-item-price">$7.99</span>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Thank you for dining with us!</p>
+</footer>
+
 </body>
 </html>
