@@ -86,6 +86,25 @@
         .order-button:hover {
             background-color: #e65c36;
         }
+
+        .room-number {
+            margin-top: 1rem;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .room-number label {
+            margin-bottom: 0.5rem;
+        }
+
+        .room-number input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 300px;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +169,13 @@
             </div>
         </div>
 
-        <button type="button" class="order-button" onclick="submitOrder()">Place Order</button>
+        <button type="button" class="order-button" onclick="showRoomInput()">Place Order</button>
+
+        <div class="room-number" id="roomNumberSection">
+            <label for="roomNumber">Enter Room Number (optional):</label>
+            <input type="text" id="roomNumber" name="roomNumber" placeholder="Room Number">
+            <button type="button" class="order-button" onclick="submitOrder()">Confirm Order</button>
+        </div>
     </form>
 </main>
 
@@ -159,15 +184,28 @@
 </footer>
 
 <script>
-    function submitOrder() {
+    function showRoomInput() {
         const selectedItems = Array.from(document.querySelectorAll('input[name="menuItem"]:checked'))
             .map(item => item.value);
 
         if (selectedItems.length === 0) {
             alert("Please select at least one item to place an order.");
         } else {
-            alert("You have ordered: \n" + selectedItems.join("\n"));
+            document.getElementById('roomNumberSection').style.display = 'flex';
         }
+    }
+
+    function submitOrder() {
+        const selectedItems = Array.from(document.querySelectorAll('input[name="menuItem"]:checked'))
+            .map(item => item.value);
+        const roomNumber = document.getElementById('roomNumber').value;
+
+        let orderSummary = "You have ordered: \n" + selectedItems.join("\n");
+        if (roomNumber) {
+            orderSummary += "\nRoom Number: " + roomNumber;
+        }
+
+        alert(orderSummary);
     }
 </script>
 
